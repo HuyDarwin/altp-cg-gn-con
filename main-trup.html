@@ -1,0 +1,582 @@
+<head>
+  <title>Main</title> 
+  
+	<script src="https://unpkg.com/xlsx/dist/xlsx.full.min.js"></script>
+	<script type="text/javascript" src="JS/jquery-3.3.1.min.js"></script>
+	<script type="text/javascript" src="JS/jquery.keyframes.min.js"></script>
+	<script type="text/javascript" src="JS/accounting.min.js"></script>
+	<script type="text/javascript" src="JS/init.js"></script>
+  
+	<script type="module" src="JS/firebase.js"></script>
+	<script type="module" src="JS/functions.js"></script>
+	<script type="module" src="JS/sound_fb.js"></script>
+	<script type="module" src="JS/main_fb.js"></script>
+	
+  <link rel="stylesheet" type="text/css" href="CSS/reset.css">
+	<link rel="stylesheet" type="text/css" href="CSS/site.css">
+	<link rel="stylesheet" type="text/css" href="CSS/site_main.css">
+	
+  <meta charset="utf-8" />
+</head>
+
+<body onkeydown="if(!event.target.matches('input')&&!event.target.matches('textarea')&&event.keyCode != 122 && event.keyCode != 116 && event.keyCode != 17)return!1" oncontextmenu="return!1" onselectstart="return!1" ondragstart="return!1">
+<!--
+<body>
+!-->
+  <div class="stage">
+    
+    <div class="holder" id="background">
+
+    </div>
+    
+    <div class="holder" id="q-hold">
+      <div class="q-gpx">
+        
+        <div class="question">
+          <img src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/Question.png?v=1744040533556" style="width:100%;height:100%;" />
+          
+          <svg data-top="5.25" data-ypos="19" data-lines="2" data-scale="true" data-center="true">
+            <text text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1" font-family="Verdana" font-size="42.5px" x="50%" y="42.5%" fill="white"></text>
+            <text text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_2" font-family="Verdana" font-size="42.5px" x="50%" y="90%" fill="white"></text>
+          </svg>
+        </div>
+        
+        <div class="answer" id="answer-a">
+          <img class="ans-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/answer_a.png?v=1744131949831" style="width:100%;height:100%;" />
+          <img class="ans-final" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/answer_a_final.png?v=1744131944869" style="width:100%;height:100%;" />
+          <img class="ans-correct" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/answer_a_correct.png?v=1744131946290" style="width:100%;height:100%;" />
+          
+          <img class="ans-diagonal" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/diagonal.png?v=1744134594475" style="top:30%;left:23%;width:4%;" />
+          
+          <div class="ans-letter" id="ans-letter-a">
+            <svg data-top="7" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_1" font-family="Verdana" font-size="47px" y="75%" fill="#ecac17"></text>
+            </svg>
+          </div>
+          
+          <div class="ans-text" id="ans-text-a">
+            <svg data-top="7" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_1" font-family="Verdana" font-size="47.5px" y="75%" fill="white"></text>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="answer" id="answer-b">
+          <img class="ans-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/answer_b.png?v=1744131943442" style="width:100%;height:100%;" />
+          <img class="ans-final" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/answer_b_final.png?v=1744131940120" style="width:100%;height:100%;" />
+          <img class="ans-correct" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/answer_b_correct.png?v=1744131941957" style="width:100%;height:100%;" />
+          
+          <img class="ans-diagonal" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/diagonal.png?v=1744134594475" style="top:30%;left:5%;width:4%;" />
+          
+          <div class="ans-letter" id="ans-letter-b">
+            <svg data-top="7" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_2" font-family="Verdana" font-size="47px" y="75%" fill="#ecac17"></text>
+            </svg>
+          </div>
+          
+          <div class="ans-text" id="ans-text-b">
+            <svg data-top="7" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_2" font-family="Verdana" font-size="47.5px" y="75%" fill="white"></text>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="answer" id="answer-c">
+          <img class="ans-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/answer_c.png?v=1744131938544" style="width:100%;height:100%;" />
+          <img class="ans-final" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/answer_c_final.png?v=1744131935208" style="width:100%;height:100%;" />
+          <img class="ans-correct" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/answer_c_correct.png?v=1744131937196" style="width:100%;height:100%;" />
+          
+          <img class="ans-diagonal" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/diagonal.png?v=1744134594475" style="top:30%;left:23%;width:4%;" />
+          
+          <div class="ans-letter" id="ans-letter-c">
+            <svg data-top="7" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_3" font-family="Verdana" font-size="47px" y="75%" fill="#ecac17"></text>
+            </svg>
+          </div>
+          
+          <div class="ans-text" id="ans-text-c">
+            <svg data-top="7" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_3" font-family="Verdana" font-size="47.5px" y="75%" fill="white"></text>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="answer" id="answer-d">
+          <img class="ans-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/answer_d.png?v=1744131934091" style="width:100%;height:100%;" />
+          <img class="ans-final" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/answer_d_final.png?v=1744131705214" style="width:100%;height:100%;" />
+          <img class="ans-correct" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/answer_d_correct.png?v=1744131924523" style="width:100%;height:100%;" />
+          
+          <img class="ans-diagonal" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/diagonal.png?v=1744134594475" style="top:30%;left:5%;width:4%;" />
+          
+          <div class="ans-letter" id="ans-letter-d">
+            <svg data-top="7" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_4" font-family="Verdana" font-size="47px" y="75%" fill="#ecac17"></text>
+            </svg>
+          </div>
+          
+          <div class="ans-text" id="ans-text-d">
+            <svg data-top="7" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_4" font-family="Verdana" font-size="47.5px" y="75%" fill="white"></text>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="no-pass">
+          <img src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/Can't%20Pass.png?v=1744301181246" style="width:100%;height:100%;" />
+          
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1" font-family="Verdana" font-size="40px" y="75%" fill="white"></text>
+          </svg>
+        </div>
+        
+        <div class="timer">
+          <div id="timer-blue">
+            
+          </div>
+          <div id="timer-red">
+            
+          </div>
+          
+          <div class="sparkle">
+            
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="holder" id="m-hold">
+      <div class="money">
+        <img src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/Money%20Strap.png?v=1744390050713" style="width:100%;height:100%;" />
+          
+        <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+          <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1" font-family="Copperplate" font-size="130px" y="75%" fill="white"></text>
+        </svg>
+      </div>
+      
+      <div class="total-money">
+        <img src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/Money%20Strap.png?v=1744390050713" style="width:100%;height:100%;" />
+          
+        <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+          <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1" font-family="Copperplate" font-size="130px" y="75%" fill="white"></text>
+        </svg>
+      </div>
+      
+      <div class="money-2">
+        <img src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/Money%20Strap%20with%20White%20Lozenge.png?v=1744514297220" style="width:100%;height:100%;" />
+        
+        <div class="top-text">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1" font-family="Verdana" font-size="38px" font-weight="bold" y="22.5%" fill="#0b204b"></text>
+          </svg>
+        </div>
+        
+        <div class="old-top-money">
+          <svg data-top="37" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1" font-family="Copperplate" font-size="120px" y="80%" fill="white"></text>
+          </svg>
+        </div>
+        
+        <div class="top-money">
+          <svg data-top="37" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1" font-family="Copperplate" font-size="120px" y="80%" fill="white"></text>
+          </svg>
+        </div>
+      </div>
+      
+      <div class="comm-strap">
+        <img src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/Money%20Strap%20with%20White%20Lozenge.png?v=1744514297220" style="width:100%;height:100%;" />
+        
+        <div class="cs-text">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1" font-family="Verdana" font-size="38px" font-weight="bold" y="22.5%" fill="#0b204b"></text>
+          </svg>
+        </div>
+        
+        <div class="cs-money">
+          <svg data-top="37" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1" font-family="Copperplate" font-size="120px" y="80%" fill="white"></text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+    <div class="holder" id="l-hold">
+      <div class="lifeline-holder">
+        <img src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/Lifeline%20Holder.png?v=1744388124381" style="width:100%;height:100%;" />
+        
+        <div class="lh-icon" id="lh-icon-1">
+          <img class="ll-used" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/lifeline%20used.png?v=1744734934763" style="height:100%;" />     
+        </div>
+        <div class="lh-icon" id="lh-icon-2">        
+          <img class="ll-used" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/lifeline%20used.png?v=1744734934763" style="height:100%;" />  
+        </div>
+      </div>
+    </div>
+    
+    <div class="holder" id="c-hold">
+      <div class="cont-strap">
+        <img src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/cont%20strap.png?v=1744801243072" style="width:100%;height:100%;" />
+        
+        <div class="cont-name">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+        
+        <div class="cont-hometown">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+    <div class="holder" id="fa-hold">
+      <div class="fa-container">
+        <div class="fa-bg">
+          <video class="fa-bg-vid" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/olga%20hs.mp4?v=1744727296294" autoplay loop muted></video>
+          <img class="seperator" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/tree_seperator.png?v=1744727030669" style="height:100%;left:59.4%;"/>
+        </div>
+        
+        <div class="fa-q-text">
+          <svg data-top="0" data-ypos="0" data-lines="6" data-scale="true"> 
+            <text lengthAdjust="spacingAndGlyphs" id="line_1" y="12%"></text>
+            <text lengthAdjust="spacingAndGlyphs" id="line_2" y="26.5%"></text>
+            <text lengthAdjust="spacingAndGlyphs" id="line_3" y="41%"></text>
+            <text lengthAdjust="spacingAndGlyphs" id="line_4" y="55.5%"></text>
+            <text lengthAdjust="spacingAndGlyphs" id="line_5" y="70%"></text>
+            <text lengthAdjust="spacingAndGlyphs" id="line_6" y="84.5%"></text>
+          </svg>
+        </div>
+        
+        <div class="fa-answer" id="fa-answer-1">
+          <img class="fa-ans-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_answer.png?v=1744814569401" style="width:100%;height:100%;" />
+          
+          <img class="fa-ans-diagonal" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/diagonal_20x21.png?v=1744814852660" />
+          
+          <div class="fa-ans-letter" id="fa-ans-letter-1">
+            <svg data-top="0" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+            </svg>
+          </div>
+          
+          <div class="fa-ans-text" id="fa-ans-text-1">
+            <svg data-top="0" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="fa-answer" id="fa-answer-2">
+          <img class="fa-ans-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_answer.png?v=1744814569401" style="width:100%;height:100%;" />
+          
+          <img class="fa-ans-diagonal" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/diagonal_20x21.png?v=1744814852660" />
+          
+          <div class="fa-ans-letter" id="fa-ans-letter-2">
+            <svg data-top="0" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_2"></text>
+            </svg>
+          </div>
+          
+          <div class="fa-ans-text" id="fa-ans-text-2">
+            <svg data-top="0" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_2"></text>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="fa-answer" id="fa-answer-3">
+          <img class="fa-ans-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_answer.png?v=1744814569401" style="width:100%;height:100%;" />
+          
+          <img class="fa-ans-diagonal" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/diagonal_20x21.png?v=1744814852660" />
+          
+          <div class="fa-ans-letter" id="fa-ans-letter-3">
+            <svg data-top="0" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_3"></text>
+            </svg>
+          </div>
+          
+          <div class="fa-ans-text" id="fa-ans-text-3">
+            <svg data-top="0" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_3"></text>
+            </svg>
+          </div>
+        </div>
+        
+        <div class="fa-answer" id="fa-answer-4">
+          <img class="fa-ans-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_answer.png?v=1744814569401" style="width:100%;height:100%;" />
+          
+          <img class="fa-ans-diagonal" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/diagonal_20x21.png?v=1744814852660" />
+          
+          <div class="fa-ans-letter" id="fa-ans-letter-4">
+            <svg data-top="0" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_4"></text>
+            </svg>
+          </div>
+          
+          <div class="fa-ans-text" id="fa-ans-text-4">
+            <svg data-top="0" data-ypos="0" data-lines="4" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_4"></text>
+            </svg>
+          </div>
+        </div>
+        
+      </div>
+    </div>
+    
+    <div class="holder" id="fr-hold">
+      <div class="fr-container">
+        <video class="fr-bg-vid" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/olga%20hs%201280x720.mp4?v=1744817062743" autoplay loop muted></video>
+
+        <div class="fff-result" id="fff-result-1">
+          <img class="fr-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_times.png?v=1744817752679" style="width:100%;height:100%;" />
+          <img class="fr-correct" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_times_correct.png?v=1744817752679" style="width:100%;height:100%;" />
+
+          <div class="fr-name" id="fr-name-1">
+            <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+            </svg>
+          </div>
+
+          <div class="fr-times" id="fr-times-1">
+            <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+              <text x="100%" text-anchor="end" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="fff-result" id="fff-result-2">
+          <img class="fr-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_times.png?v=1744817752679" style="width:100%;height:100%;" />
+          <img class="fr-correct" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_times_correct.png?v=1744817752679" style="width:100%;height:100%;" />
+
+          <div class="fr-name" id="fr-name-2">
+            <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+            </svg>
+          </div>
+
+          <div class="fr-times" id="fr-times-2">
+            <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+              <text x="100%" text-anchor="end" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="fff-result" id="fff-result-3">
+          <img class="fr-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_times.png?v=1744817752679" style="width:100%;height:100%;" />
+          <img class="fr-correct" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_times_correct.png?v=1744817752679" style="width:100%;height:100%;" />
+
+          <div class="fr-name" id="fr-name-3">
+            <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+            </svg>
+          </div>
+
+          <div class="fr-times" id="fr-times-3">
+            <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+              <text x="100%" text-anchor="end" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="fff-result" id="fff-result-4">
+          <img class="fr-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_times.png?v=1744817752679" style="width:100%;height:100%;" />
+          <img class="fr-correct" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_times_correct.png?v=1744817752679" style="width:100%;height:100%;" />
+
+          <div class="fr-name" id="fr-name-4">
+            <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+            </svg>
+          </div>
+
+          <div class="fr-times" id="fr-times-4">
+            <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+              <text x="100%" text-anchor="end" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="fff-result" id="fff-result-5">
+          <img class="fr-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_times.png?v=1744817752679" style="width:100%;height:100%;" />
+          <img class="fr-correct" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_times_correct.png?v=1744817752679" style="width:100%;height:100%;" />
+
+          <div class="fr-name" id="fr-name-5">
+            <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+            </svg>
+          </div>
+
+          <div class="fr-times" id="fr-times-5">
+            <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+              <text x="100%" text-anchor="end" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="fff-result" id="fff-result-6">
+          <img class="fr-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_times.png?v=1744817752679" style="width:100%;height:100%;" />
+          <img class="fr-correct" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/fff_order_times_correct.png?v=1744817752679" style="width:100%;height:100%;" />
+
+          <div class="fr-name" id="fr-name-6">
+            <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+              <text lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+            </svg>
+          </div>
+
+          <div class="fr-times" id="fr-times-6">
+            <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+              <text x="100%" text-anchor="end" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <div class="holder" id="fs-hold">
+      <div class="fff-score" id="fff-score-1">
+        <img class="fs-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/FFF%20Scoreboard.png?v=1744821945211" style="width:100%;height:100%;" />
+        <img class="fs-winner" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/FFF%20Scoreboard%20Winner.png?v=1744821945486" style="width:100%;height:100%;" />
+        
+        <div class="fs-name" id="fs-name-1">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+        
+        <div class="fs-score" id="fs-score-1">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+        
+        <div class="fs-times" id="fs-times-1">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="100%" text-anchor="end" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+      </div>
+      
+      <div class="fff-score" id="fff-score-2">
+        <img class="fs-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/FFF%20Scoreboard.png?v=1744821945211" style="width:100%;height:100%;" />
+        <img class="fs-winner" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/FFF%20Scoreboard%20Winner.png?v=1744821945486" style="width:100%;height:100%;" />
+        
+        <div class="fs-name" id="fs-name-2">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+        
+        <div class="fs-score" id="fs-score-2">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+        
+        <div class="fs-times" id="fs-times-2">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="100%" text-anchor="end" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+      </div>
+      
+      <div class="fff-score" id="fff-score-3">
+        <img class="fs-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/FFF%20Scoreboard.png?v=1744821945211" style="width:100%;height:100%;" />
+        <img class="fs-winner" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/FFF%20Scoreboard%20Winner.png?v=1744821945486" style="width:100%;height:100%;" />
+        
+        <div class="fs-name" id="fs-name-3">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+        
+        <div class="fs-score" id="fs-score-3">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+        
+        <div class="fs-times" id="fs-times-3">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="100%" text-anchor="end" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+      </div>
+      
+      <div class="fff-score" id="fff-score-4">
+        <img class="fs-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/FFF%20Scoreboard.png?v=1744821945211" style="width:100%;height:100%;" />
+        <img class="fs-winner" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/FFF%20Scoreboard%20Winner.png?v=1744821945486" style="width:100%;height:100%;" />
+        
+        <div class="fs-name" id="fs-name-4">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+        
+        <div class="fs-score" id="fs-score-4">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+        
+        <div class="fs-times" id="fs-times-4">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="100%" text-anchor="end" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+      </div>
+      
+      <div class="fff-score" id="fff-score-5">
+        <img class="fs-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/FFF%20Scoreboard.png?v=1744821945211" style="width:100%;height:100%;" />
+        <img class="fs-winner" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/FFF%20Scoreboard%20Winner.png?v=1744821945486" style="width:100%;height:100%;" />
+        
+        <div class="fs-name" id="fs-name-5">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+        
+        <div class="fs-score" id="fs-score-5">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+        
+        <div class="fs-times" id="fs-times-5">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="100%" text-anchor="end" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+      </div>
+      
+      <div class="fff-score" id="fff-score-6">
+        <img class="fs-main" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/FFF%20Scoreboard.png?v=1744821945211" style="width:100%;height:100%;" />
+        <img class="fs-winner" src="https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/FFF%20Scoreboard%20Winner.png?v=1744821945486" style="width:100%;height:100%;" />
+        
+        <div class="fs-name" id="fs-name-6">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+        
+        <div class="fs-score" id="fs-score-6">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="50%" text-anchor="middle" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+        
+        <div class="fs-times" id="fs-times-6">
+          <svg data-top="0" data-ypos="0" data-lines="1" data-scale="true"> 
+            <text x="100%" text-anchor="end" lengthAdjust="spacingAndGlyphs" id="line_1"></text>
+          </svg>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <script>
+    document.body.style.zoom = "100%";
+  </script>
+  
+</body>
