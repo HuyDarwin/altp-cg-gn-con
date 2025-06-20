@@ -1,9 +1,9 @@
 @font-face {
 	font-family: "Copperplate";
 	src:
-		url("https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/CP31C01.ttf?v=1744453902784") format("woff"),
-		url("https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/CP31C01.ttf?v=1744453902784") format("opentype"),
-		url("https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/CP31C01.ttf?v=1744453902784") format("truetype");
+		url("../Fonts/CP31C01.ttf") format("woff"),
+		url("../Fonts/CP31C01.ttf") format("opentype"),
+		url("../Fonts/CP31C01.ttf") format("truetype");
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;

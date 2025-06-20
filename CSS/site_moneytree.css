@@ -173,7 +173,7 @@ body {
 }
 
 #moneyTd-lp{
-  background-image: url("https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/lq.png?v=1744729206506");
+  background-image: url("../Assets/lq.png");
   background-repeat: no-repeat;
 	background-size: cover;
 	z-index:1;
@@ -195,7 +195,7 @@ body {
 }
 
 #moneyTd-et3{
-  background-image: url("https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/t3.png?v=1744729222106");
+  background-image: url("../Assets/t3.png");
   background-repeat: no-repeat;
 	background-size: cover;
 	z-index:1;
@@ -218,7 +218,7 @@ body {
 }
 
 #moneyTd-t3{
-  background-image: url("https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/t3.png?v=1744729222106");
+  background-image: url("../Assets/t3.png");
   background-repeat: no-repeat;
 	background-size: cover;
 	z-index:1;
@@ -240,7 +240,7 @@ body {
 }
 
 #moneyTd-t2{
-  background-image: url("https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/t2.png?v=1744729220436");
+  background-image: url("../Assets/t2.png");
   background-repeat: no-repeat;
 	background-size: cover;
 	z-index:1;
@@ -262,7 +262,7 @@ body {
 }
 
 #moneyTd-t1{
-  background-image: url("https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/t1.png?v=1744729217247");
+  background-image: url("../Assets/t1.png");
   background-repeat: no-repeat;
 	background-size: cover;
 	z-index:1;
@@ -284,7 +284,7 @@ body {
 }
 
 #moneyTd-nlp{
-  background-image: url("https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/lq.png?v=1744729206506");
+  background-image: url("../Assets/lq.png");
   background-repeat: no-repeat;
 	background-size: cover;
 	z-index:1;
@@ -306,7 +306,7 @@ body {
 }
 
 #moneyTd-nt3{
-  background-image: url("https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/nq_t3.png?v=1744729213799");
+  background-image: url("../Assets/nq_t3.png");
   background-repeat: no-repeat;
 	background-size: cover;
 	z-index:1;
@@ -327,7 +327,7 @@ body {
 }
 
 #moneyTd-nt2{
-  background-image: url("https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/nq_t2.png?v=1744729210656");
+  background-image: url("../Assets/nq_t2.png");
   background-repeat: no-repeat;
 	background-size: cover;
 	z-index:1;
@@ -348,7 +348,7 @@ body {
 }
 
 #moneyTd-nt1{
-  background-image: url("https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/nq_t1.png?v=1744729208250");
+  background-image: url("../Assets/nq_t1.png");
   background-repeat: no-repeat;
 	background-size: cover;
 	z-index:1;
@@ -369,7 +369,7 @@ body {
 }
 
 #moneyTd-cm{
-  background-image: url("https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/cq.png?v=1744729204398");
+  background-image: url("../Assets/cq.png");
   background-repeat: no-repeat;
 	background-size: cover;
 	z-index:1;
@@ -391,7 +391,7 @@ body {
 }
 
 #moneyTd-cn{
-  background-image: url("https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/cq.png?v=1744729204398");
+  background-image: url("../Assets/cq.png");
   background-repeat: no-repeat;
 	background-size: cover;
 	z-index:1;

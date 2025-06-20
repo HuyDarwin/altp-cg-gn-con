@@ -142,7 +142,7 @@ body {
   height:100%;
   top:0%;
   left:0%;
-  background-image:url('https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/Timer.png?v=1744299330580');
+  background-image:url("../Assets/Timer.png");
   background-repeat: no-repeat;
 	background-size: contain;
 }
@@ -152,14 +152,14 @@ body {
   height:100%;
   top:0%;
   left:0%;
-  background-image:url('https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/Timer%20red.png?v=1744299330804');
+  background-image:url("");
   background-repeat: no-repeat;
 	background-size: contain;
   clip-path: inset(0 100% 0 0);
 }
 
 .sparkle{
-  background:url('https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/sparkle_sheet.png?v=1744540064311') no-repeat;
+  background:url("../Assets/sparkle_sheet.png") no-repeat;
   width:128px;
   height:128px;
   left:-4%;
@@ -323,7 +323,7 @@ body {
 
 #lh-icon-1{
   left:35.3%;
-  background-image: url('https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/5050.png?v=1745402212642');
+  background-image: url("../Assets/5050.png");
   background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
@@ -331,7 +331,7 @@ body {
 
 #lh-icon-2{
   left:56.3%;
-  background-image: url('https://cdn.glitch.global/1e0ed98c-8cea-492e-ab8c-1dec944f253e/stq.png?v=1744389523136');
+  background-image: url("..Assets/stq.png");
   background-repeat: no-repeat;
 	background-position: center;
 	background-size: contain;
