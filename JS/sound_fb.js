@@ -80,7 +80,7 @@ $(function () {
               upd("sfx_ambiance", 0);
             }
             if(data.sfx_closer_long == 1){ 
-              con.PlaySound("Assets/19.%20HS%20Closer%20Extended.mp3", 3);
+              con.PlaySound("Assets/19.%20HS%20Closer%20Extended.mp3", 5);
               upd("sfx_closer_long", 0);
             }
           
