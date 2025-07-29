@@ -71,6 +71,18 @@ $(function () {
               con.PlaySound("Assets/19.%20HS%20Closer.mp3", 3);
               upd("sfx_closer", 0);
             }
+            if(data.sfx_rules == 1){ 
+              con.PlaySound("Assets/explain_rules.mp3", 3);
+              upd("sfx_rules", 0);
+            }
+            if(data.sfx_ambiance == 1){ 
+              con.PlaySound("Assets/musique%20ambiance%20palier%2001.wav", 3);
+              upd("sfx_ambiance", 0);
+            }
+            if(data.sfx_closer_long == 1){ 
+              con.PlaySound("Assets/19.%20HS%20Closer%20Extended.mp3", 3);
+              upd("sfx_closer_long", 0);
+            }
           
             if(data.sfx_introduce_contestants == 1){
               con.PlaySound("Assets/02.%20HS%20Today's%20Names.mp3", 3);
