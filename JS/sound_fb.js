@@ -72,7 +72,7 @@ $(function () {
               upd("sfx_closer", 0);
             }
             if(data.sfx_rules == 1){ 
-              con.PlaySound("Assets/explain_rules.mp3", 3);
+              con.PlaySound("Assets/explain_rules.mp3", 5);
               upd("sfx_rules", 0);
             }
             if(data.sfx_ambiance == 1){ 
