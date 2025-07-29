@@ -40,7 +40,7 @@ $(function () {
       
         $('button [name="autoname"]').click(function(){
           var bid = this.id;
-          console.log(this.id);
+          //console.log(this.id);
           upd(bid, 1);
         })
       
@@ -2449,10 +2449,10 @@ $(function () {
               
               $(".ans-letter").css("color", "lime");
               
-              console.log(eval("data.answer_" + data.correct_order_1));
-              console.log(eval("data.answer_" + data.correct_order_2));
-              console.log(eval("data.answer_" + data.correct_order_3));
-              console.log(eval("data.answer_" + data.correct_order_4));
+              //console.log(eval("data.answer_" + data.correct_order_1));
+              //console.log(eval("data.answer_" + data.correct_order_2));
+              //console.log(eval("data.answer_" + data.correct_order_3));
+              //console.log(eval("data.answer_" + data.correct_order_4));
             } 
             else {
               $("#ans-letter-a").html("A");
