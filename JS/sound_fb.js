@@ -331,13 +331,13 @@ $(function () {
             }
           
             if(data.play_music_after_comm == 1) {
-              upd("play_music_after_comm", 0);
               if(data.q_now <= 5) {
                 upd("sfx_q_bed", 1);
               }
               else{
                 upd("sfx_final_answer", 1);
               }
+              upd("play_music_after_comm", 0);
             }
           
             // Lifelines
