@@ -2078,7 +2078,13 @@ $(function () {
             }
             else if (commercial_counter == 5) {
               upd("temp_reveal_main_question", 1);
-              upd("play_music_after_comm", 1);
+              //upd("play_music_after_comm", 1);
+              if(q_now <= 5) {
+                upd("sfx_q_bed", 1);
+              }
+              else{
+                upd("sfx_final_answer", 1);
+              }
               $(this).html("Quảng cáo");
               commercial_counter = 0;
             }

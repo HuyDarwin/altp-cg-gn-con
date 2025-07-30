@@ -330,6 +330,7 @@ $(function () {
               upd("stop_music_for_comm", 0);
             }
           
+            /*
             if(data.play_music_after_comm == 1) {
               if(data.q_now <= 5) {
                 upd("sfx_q_bed", 1);
@@ -339,6 +340,7 @@ $(function () {
               }
               upd("play_music_after_comm", 0);
             }
+            */
           
             // Lifelines
             if (data.sfx_ll_ff == 1) {
