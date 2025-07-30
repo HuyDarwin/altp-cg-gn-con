@@ -137,7 +137,7 @@ $(function () {
               upd("sfx_po10_reveal_short", 0);
             }
             if(data.sfx_po10_reveal == 1) {
-              con.PlaySound("Assets/m10_ld_question.mp3", 1);
+              con.PlaySound("Assets/m10_ld_question%20fix.mp3", 1);
               upd("sfx_po10_reveal", 0);
             }
           
