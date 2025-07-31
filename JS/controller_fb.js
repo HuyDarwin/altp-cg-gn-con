@@ -451,6 +451,8 @@ $(function () {
         }
       
         function Init(){
+          is_revealing_main_question = false;
+          
           remove(ref(db, dbKey));
           
           upd("num_of_qs", num_of_qs);
@@ -779,6 +781,7 @@ $(function () {
           }
           else if(stq_counter == 2) {
             upd("hide_main_question", 1);
+            is_revealing_main_question = false;
             upd("stop_q_bed", 1);
             
             stq_main_ques = main_questions[main_q_using - 1];
@@ -1798,6 +1801,7 @@ $(function () {
           }
           else if(pass_counter == 1) {
             upd("temp_hide_main_question", 1);
+            is_revealing_main_question = false;
             $(this).html("NC tiếp");
             pass_counter++;
           }
@@ -1942,6 +1946,7 @@ $(function () {
           }
           else if(correct_answer_counter == 1) {
             upd("hide_main_question", 1);
+            is_revealing_main_question = false;
             if (final_ans == correct_ans){
               if (q_now == q_top) {
                 upd("total_winnings", mt_value[q_now - 1]);
