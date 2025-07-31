@@ -2658,8 +2658,7 @@ $(function () {
             con.TextUpdateData(".q-now-toggle", "Câu hỏi hiện tại: " + data.q_now);          
             con.TextUpdateData(".q-top-toggle", "Mốc tối đa: " + data.q_top);
           
-            $(".question-note").html(data.note);
-    
+            $(".question-note").html(data.note);    
         });    
 
     }(window.CONTROLLER = window.CONTROLLER || {}));
