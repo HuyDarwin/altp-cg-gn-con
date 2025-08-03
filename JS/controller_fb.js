@@ -1816,6 +1816,7 @@ $(function () {
           }
           else if(pass_counter == 3) {
             upd("temp_reveal_main_question", 1);
+            is_revealing_main_question = true;
             
             enb("#h4s-main-5, #h4s-main-6, #h4s-main-7, #h4s-main-8");
             
