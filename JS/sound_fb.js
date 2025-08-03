@@ -76,7 +76,7 @@ $(function () {
               upd("sfx_rules", 0);
             }
             if(data.sfx_ambiance == 1){ 
-              con.PlaySound("Assets/musique%20ambiance%20palier%2001.wav", 3);
+              con.PlaySound("Assets/q1_to_q5_bed.mp3", 3);
               upd("sfx_ambiance", 0);
             }
             if(data.sfx_closer_long == 1){ 
